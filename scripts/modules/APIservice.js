@@ -13,7 +13,7 @@ export const fetchWeather = async (city) => {
         return { success: false, error}
     }
 }
-
+// ------ Возможный вариант написания функции -------
 // export const fetchWeather2 = (city) => {
 //     return fetch(`${API_URL}weather?units=metric&q=${city}&appid=${API_KEY}&lang=ru`)
 //     .then(response => response.json())
@@ -31,6 +31,25 @@ export const fetchForecast = async (city) => {
         return { success: true, data}
     }   catch (error) {
         return { success: false, error}
+    }
+}
+
+export const getCity = async () => {
+    const url = 'https://ipapi.co/city/';
+
+    try {
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error('Ошибка получения города');
+        }
+
+        const city = await response.text();
+
+        return { success: true, city }
+    } catch (error) {
+        console.error(error);
+        return { success: false, error }
     }
 }
 

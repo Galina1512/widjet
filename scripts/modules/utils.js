@@ -40,30 +40,31 @@ export const getCurrentDataTime = () => {
 
 };
 
-export const getWindDirection = (deg) => {
-const directions = [
-    '&#8593;',
-    '&#8598',
-    '&#8592',
-    '&#8601',
-    '&#8595',
-    '&#8660', 
-    '&#8594',
-    '&#8599',
-];
+// const arrow = '&#8595;'
+// export const getWindDirection = (deg) => {
+// const directions = [
+//     '&#8595;',
+//     '&#8601',
+//     '&#8592',
+//     '&#8598',
+//     '&#8593',
+//     '&#8599', 
+//     '&#8594',
+//     '&#8600',
+// ];
 
-const i = Math.round(deg / 45) % 8;
+// const i = Math.round(deg / 45) % 8;
 
-return directions[i];
-}
+// return directions[i];
+// }
 
 export const getWeatherForecastData = (data) => {
     const forecast = data.list.filter(
         (item) => 
         new Date(item.dt_txt).getHours() === 12 &&
-        new Date(item.dt_txt).getDate() > new Date().getDate(),
+        new Date(item.dt_txt).getDate() > new Date().getDate() &&
+        new Date(item.dt_txt).getDate() < new Date().getDate() + 5
     );
-    console.log(forecast)
 
     const forecastData = forecast.map((item) => {
         const date = new Date(item.dt_txt);
@@ -99,7 +100,8 @@ export const getWeatherForecastData = (data) => {
             if(tempDate.getDate() === date.getDate()) {
                 if (temp < minTemp) {
                     minTemp = temp;
-                } else {
+                } 
+                if (temp > maxTemp) {
                     maxTemp = temp;
                 }
             } 
