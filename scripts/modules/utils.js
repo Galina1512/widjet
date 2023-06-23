@@ -40,24 +40,6 @@ export const getCurrentDataTime = () => {
 
 };
 
-// const arrow = '&#8595;'
-// export const getWindDirection = (deg) => {
-// const directions = [
-//     '&#8595;',
-//     '&#8601',
-//     '&#8592',
-//     '&#8598',
-//     '&#8593',
-//     '&#8599', 
-//     '&#8594',
-//     '&#8600',
-// ];
-
-// const i = Math.round(deg / 45) % 8;
-
-// return directions[i];
-// }
-
 export const getWeatherForecastData = (data) => {
     const forecast = data.list.filter(
         (item) => 
@@ -89,14 +71,6 @@ export const getWeatherForecastData = (data) => {
             const temp = data.list[i].main.temp;
             const tempDate = new Date(data.list[i].dt_txt);
 
-            // const minTemp = data.list[i].main.temp_min;
-            // const maxTemp = data.list[i].main.temp_max;
-
-            // const temp = date.list[i].main.temp;
-            // const tempDate = new Date(date.list[i].dt_txt);
-            // const minTemp = date.list[i].main.temp_min;
-            // const maxTemp = date.list[i].main.temp_max;
-
             if(tempDate.getDate() === date.getDate()) {
                 if (temp < minTemp) {
                     minTemp = temp;
@@ -105,7 +79,6 @@ export const getWeatherForecastData = (data) => {
                     maxTemp = temp;
                 }
             } 
-            
         }  
     
         return {
@@ -116,5 +89,4 @@ export const getWeatherForecastData = (data) => {
         };
     });
     return forecastData;
-
 }

@@ -30,7 +30,6 @@ export const renderWidgetToday = (widget, data) => {
 };
 
 export const renderWidgetOther = (widget, data) => {
-    console.log('data: ', data);
 
     widget.insertAdjacentHTML(
         'beforeend',
@@ -64,7 +63,6 @@ export const renderWidgetForecast = (widget, data) => {
     widget.append(widgetForecast);
 
     const forecastData = getWeatherForecastData(data); 
-    console.log('data: ', data);
 
     const items = forecastData.map((item) => {
         const widgetDayItem = document.createElement('li');
