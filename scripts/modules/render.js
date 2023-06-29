@@ -37,7 +37,7 @@ export const renderWidgetOther = (widget, data) => {
     <div class="widget__other">
         <div class="widget__wind">
           <p class="widget__wind-title">Ветер</p>
-          <p class="widget__wind-speed">${data.wind.speed} м/с</p>
+          <p class="widget__wind-speed">${data.wind.speed} <span class="widget__wind-title">м/с</span></p>
           <p class="widget__wind-text" style="transform: rotate(${data.wind.deg}deg)">&#8595;</p>
   
         </div>
