@@ -193,3 +193,19 @@
   border: none;
   border-radius: 20px;
 }
+
+@media all and (max-width: 400px) {
+  .widget__forecast {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  
+  }
+
+
+@media all and (max-width: 360px) {
+  .widget__forecast {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  
+  }
+  
